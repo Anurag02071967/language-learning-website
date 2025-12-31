@@ -221,74 +221,96 @@ nav {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-/* Languages Section */
-.languages {
-    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-    padding: 80px 2rem;
-    position: relative;
-    overflow: hidden;
+/* How It Works Section */
+.how-it-works {
+  padding: 100px 2rem;
+  background: linear-gradient(135deg, #f6f7fb, #eef2ff);
+  text-align: center;
 }
 
-.languages::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: rotate 20s linear infinite;
+.how-grid {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-.languages-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+/* Cards */
+.how-card {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+  transition: all 0.4s ease;
+  animation: fadeUp 0.8s ease both;
+  position: relative;
+  overflow: hidden;
 }
 
-.language-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+/* Stagger animation */
+.how-card:nth-child(1) { animation-delay: 0.1s; }
+.how-card:nth-child(2) { animation-delay: 0.3s; }
+.how-card:nth-child(3) { animation-delay: 0.5s; }
+.how-card:nth-child(4) { animation-delay: 0.7s; }
+
+/* Hover animation */
+.how-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
 }
 
-.language-item {
-    background: white;
-    padding: 2rem 1rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s;
-    cursor: pointer;
-    animation: fadeInScale 0.6s ease-out;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+/* Glow effect */
+.how-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102,126,234,0.15), transparent 70%);
+  opacity: 0;
+  transition: 0.4s;
 }
 
-.language-item:nth-child(1) { animation-delay: 0.1s; }
-.language-item:nth-child(2) { animation-delay: 0.2s; }
-.language-item:nth-child(3) { animation-delay: 0.3s; }
-.language-item:nth-child(4) { animation-delay: 0.4s; }
-.language-item:nth-child(5) { animation-delay: 0.5s; }
-.language-item:nth-child(6) { animation-delay: 0.6s; }
-
-.language-item:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    background: linear-gradient(135deg, #fff 0%, #f0f8ff 100%);
+.how-card:hover::before {
+  opacity: 1;
 }
 
-.language-item .flag {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-    animation: swing 2s ease-in-out infinite;
+/* Titles */
+.how-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.language-item:hover .flag {
-    animation: jump 0.5s ease-in-out;
+/* Text */
+.how-card p {
+  color: #555;
+  line-height: 1.6;
 }
+
+/* Entrance animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 60px 20px;
+  }
+}
+
 
 /* Testimonials */
 .testimonials {
